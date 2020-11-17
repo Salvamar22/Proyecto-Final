@@ -45,8 +45,13 @@ void menu(queue <Clientes> &normalQueue,queue <Clientes>&vipQueue){
           getline(cin, normal.nombre);
           cout<<"Dui: ";
           cin>> normal.dui;
-          cout<<"Edad: ";
-          cin>> normal.edad;
+         
+        //  do{
+               cout<<"Edad: ";
+                 cin>> normal.edad;
+          //}while (normal.edad>=18&&normal.edad<=70);
+    
+          
           normalQueue.push(normal);
     break;
         }
@@ -62,8 +67,10 @@ void menu(queue <Clientes> &normalQueue,queue <Clientes>&vipQueue){
           getline(cin, vip.nombre);
           cout<<"Dui: ";
           cin>> vip.dui;
-          cout<<"Edad: ";
-          cin>> vip.edad;
+        //  do{
+               cout<<"Edad: ";
+                 cin>> vip.edad;
+         // }while (vip.edad>=70&&vip.edad<=130);
           vipQueue.push(vip);  
         } 
     break;
