@@ -220,7 +220,7 @@ cliente prioritize_client(){
     }
     return new_client;
 }
-
+//Funcion que almacena los datos que estan en la lista junto con los cajeros
 void actCajas(cajero p){
 	cliente cl;
     cout << "\nCredencial: "  << p.credencial;
@@ -235,7 +235,7 @@ void actCajas(cajero p){
     
     }
 }
-
+//Funcion que muestra la actividad en los cajeros
 void mostrarCajeros(){
      int i=0;
     for(list<cajero>::iterator list_iter = cajas.begin(); list_iter != cajas.end(); list_iter++){
@@ -243,3 +243,4 @@ void mostrarCajeros(){
         actCajas(*list_iter);
     }
 }
+
