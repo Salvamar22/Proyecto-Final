@@ -14,7 +14,6 @@ struct Clientes{
 typedef Clientes cliente;
 //Estructura del cajero
 struct cajero{
-    //otros datos
     int credencial;
     cliente c_actual;
 };
@@ -28,7 +27,6 @@ void menu();
 void showQueue (queue<Clientes> normal);
 void show_till(cajero caja);
 void dispatch();
-cajero request_till();
 cliente prioritize_client();
 void mostrarCajeros();
 //Consola
@@ -150,8 +148,8 @@ void menu(){
     }
 }
 
+//Muestra informacion basica de la caja
 void show_till(cajero caja){
-    //cout << "\nN cliente: "  << caja.c_actual.n_llegada;
     cout << "\nCredencial: "  << caja.credencial;
     if( void_client.dui == caja.c_actual.dui){
         cout << "\nSin cliente";
@@ -160,20 +158,20 @@ void show_till(cajero caja){
         cout << "\nCliente: " << caja.c_actual.nombre;
     }
 }
-
+//Muestra informacion basica de todas las cajas para que se pueda elejir una
 void show_all_tills(){
     int i=0;
     for(list<cajero>::iterator list_iter = cajas.begin(); list_iter != cajas.end(); list_iter++){
-        cout << "\n\nNumero" << ++i;
+        cout << "\n\nNumero " << ++i;
         show_till(*list_iter);
     }
 }
-
+//Despacha el cliente actual de una caja, asignandole inmediatamente uno nuevo si aplica.
 void dispatch(){
     int i = 0, c = 0;
     system("CLS");
     show_all_tills();
-    cout << "\n\nSeleccione la caja a despachar: ";
+    cout << "\n\nSeleccione el numero de la caja a despachar: ";
     cin >> c;
     for(list<cajero>::iterator list_iter = cajas.begin(); list_iter != cajas.end(); list_iter++){
         if(++i == c){
@@ -193,14 +191,7 @@ void dispatch(){
     cout << "\nNo se ha encontrado la caja seleccionada";
 }
 
-cajero request_till(){
-    cajero t;
-    cout << "Ingrese credencial: ";
-    cin >> t.credencial;
-    t.c_actual = prioritize_client();
-    return t;
-}
-
+//Elige si el proximo cliente en ser atendido debe ser de la cola normal o de la vip.
 cliente prioritize_client(){
     cliente new_client = void_client;
     if(vipQueue.empty())
