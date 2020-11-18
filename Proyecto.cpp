@@ -65,7 +65,7 @@ void menu(){
     int option;
     bool status = true;
     while(status){
-        cout<< "\n"<<"Bienvenidos"<<endl;
+        cout<< "\n"<<"-----Bienvenidos-----"<<endl;
         cout << "1. Agregar cliente Normal: "<<endl;
         cout << "2. Mostrar cola de clientes normales:"<<endl;
         cout << "3. Agregar cliente VIP: "<<endl;
@@ -84,6 +84,7 @@ void menu(){
             Clientes normal;
             cout << "Nombre: ";
             getline(cin, normal.nombre);
+            cout << "Ingresar Dui (9 digitos) "<<endl;
             cout << "Dui: ";
             cin >> normal.dui;
             while( normal.dui < 99999999 || normal.dui > 1000000000){
@@ -91,7 +92,7 @@ void menu(){
                 cin.ignore();
                 cin >> normal.dui;
             }
-        
+            cout<<"Ingresar Edad cliente Normal (rango entre 18 y 59) "<<endl;
             cout << "Edad: ";
             cin >> normal.edad;
             while ( normal.edad < 18 || normal.edad > 59){
@@ -112,6 +113,7 @@ void menu(){
             Clientes vip;
             cout << "Nombre: ";
             getline(cin, vip.nombre);
+            cout << "Ingresar Dui (9 digitos) ";
             cout << "Dui: ";
             cin >> vip.dui;
             while( vip.dui < 99999999 || vip.dui > 1000000000){
@@ -119,7 +121,7 @@ void menu(){
                 cin.ignore();
                 cin >> vip.dui;
             }
-        
+            cout<<"Ingresar Edad cliente VIP (rango entre 60 y 130) "<<endl;
             cout << "Edad: ";
             cin >> vip.edad;
             while ( vip.edad < 60 || vip.edad > 130){
