@@ -127,7 +127,7 @@ void menu(){
                 cin >> vip.edad;
             }
             vip.n_llegada = ++ctd_clients;
-            normalQueue.push(vip);
+            vipQueue.push(vip);
             break;
         }
         //Mostrar lista de clientes Vip
